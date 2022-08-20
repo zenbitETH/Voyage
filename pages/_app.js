@@ -119,7 +119,7 @@ function MyApp({ Component, pageProps }) {
             <div className={buttonContainerStyle}>
               {
                 !connected && (
-                  <button className={buttonStyle} onClick={signIn}>Sign in</button>
+                  <button className="bg-green-500 px-10 py-2 rounded-xl" onClick={signIn}>Sign in</button>
                 )
               }
               {
