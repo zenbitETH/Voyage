@@ -20,6 +20,7 @@ export default function CreatePostModal({
       description: inputRef.current.innerHTML,
       name: `Post by @${profile.handle}`,
       external_url: `https://lenster.xyz/u/${profile.handle}`,
+      isAuthentified : profile.onChainIdentity.worldcoin.isHuman,
       metadata_id: uuid(),
       createdOn: new Date().toISOString(),
       ...baseMetadata

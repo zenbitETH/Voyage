@@ -51,6 +51,7 @@ export default function Home() {
     } else if (!addresses.length) {
       try {
         const response = await basicClient.query(explorePublications).toPromise()
+        console.log(response)
         const posts = response.data.explorePublications.items.filter(post => {
           if (post.profile) {
             post.backgroundColor = generateRandomColor()
@@ -148,9 +149,11 @@ export default function Home() {
                     <div className="text-white text-center grid w-full ">
                       <span className="proName">{post.profile.name} /    
                         <span className="proHandle">{post.profile.handle}</span>
+                        
                       </span>
                       <div className='tripCity'>📍CDMX, Trip #0001</div>
-
+                      {console.log(post.profile.onChainIdentity.worldcoin.isHuman,"===================================")}
+                      <p> account authentificated : {post.profile.onChainIdentity.worldcoin.isHuman.toString()}</p>
                  
                       
                      
@@ -158,6 +161,8 @@ export default function Home() {
                   </div>
                   <div>
                     <p className={latestPostStyle}>{trimString(post.metadata.content, 200)}</p>
+                    {}
+                    <img src={post.metadata.image}></img>
                     {console.log("proName",post.metadata, 200)}
                     
                     {/*<Image       

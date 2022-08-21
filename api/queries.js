@@ -87,7 +87,21 @@ const getProfiles = `
     }
   }
 `
+const nftGraphQuery = `
 
+  query{
+ 
+    user(id:$userId) {
+      id
+      trips{
+        start
+        end
+        city
+        id
+      }
+    }
+  }
+`
 const getDefaultProfile = `
 query DefaultProfile($address: EthereumAddress!) {
   defaultProfile(request: { ethereumAddress: $address}) {
@@ -585,6 +599,7 @@ const explorePublications = `
     explorePublications(request: {
       sortCriteria: TOP_COMMENTED,
       publicationTypes: [POST, COMMENT, MIRROR],
+      metadata:{mainContentFocus:IMAGE},
       limit: 10
     }) {
       items {
@@ -600,6 +615,7 @@ const explorePublications = `
     id
     name
     bio
+    onChainIdentity{worldcoin{isHuman}}
     attributes {
       displayType
       traitType
@@ -700,17 +716,7 @@ const explorePublications = `
     name
     description
     content
-    media {
-      original {
-        ...MediaFields
-      }
-      small {
-        ...MediaFields
-      }
-      medium {
-        ...MediaFields
-      }
-    }
+    image
     attributes {
       displayType
       traitType
@@ -721,6 +727,7 @@ const explorePublications = `
   fragment PostFields on Post {
     id
     profile {
+       onChainIdentity{worldcoin{isHuman}}
       ...ProfileFields
     }
     stats {
