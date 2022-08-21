@@ -103,18 +103,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className={searchContainerStyle}>
-        <SearchInput
-          placeholder='Search'
-          onChange={e => setSearchString(e.target.value)}
-          value={searchString}
-          onKeyDown={handleKeyDown}
-        />
-        <Button
-          buttonText="SEARCH POSTS"
-          onClick={searchForPost}
-        />
-      </div>
+
       <div className={listItemContainerStyle}>
         {
           loadingState === 'no-results' && (
@@ -189,7 +178,7 @@ export default function Home() {
                           src={like}
                           width={20}
                           height={20}
-                          className="hover:regen-100 cursor-pointer  "  
+                          className="hover:regen-100 cursor-pointer z-0 "  
                         />
                       </a>
                     </Link>
