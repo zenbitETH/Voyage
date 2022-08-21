@@ -145,7 +145,7 @@ async function signInWc(){
                   </Link>
                 )
               }
-              <Link href='/Wallettest'>
+              <Link href='/'>
                 <a className='imageBG'>
                   <Image
                     src={past}
@@ -157,7 +157,7 @@ async function signInWc(){
               </Link>
               
 
-              <Link href='/profiles'>
+              <Link href='/'>
                 <a className='imageBG'>
                 <Image
                   src={act}
