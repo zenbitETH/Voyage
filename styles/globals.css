@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Work+Sans:wght@200;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+path:hover {
+  fill: #416657;
+}
+
+.icons {
+  @apply
+  mx-5 cursor-pointer
+}
+
+.imageBG {
+  @apply
+  px-5 py-3 cursor-pointer hover:bg-regen-500 text-center
+}
+
+.postHead {
+  @apply 
+  bg-regen-500 grid grid-cols-6 rounded-t-lg
+}
+
+.postText {
+  @apply
+  text-white text-center grid w-full col-span-4
+}
+
+.postContent {
+  @apply
+  text-black
+  font-work
+  mx-5
+  mt-5
+  text-base
+}
+
+.proName {
+  @apply 
+  font-bold
+  font-work
+  text-sm	
+  my-auto
+}
+
+.tripCity {
+  @apply
+  text-sm
+  font-work
+}
+
+.WDC {
+  @apply
+  text-regen-500
+}
+
+.proFooter {
+  @apply 
+  grid
+  grid-cols-4
+  mt-5
+  text-center
+}
+
+
+
+.items {
+  @apply 
+  bg-white
+  mt-5
+  rounded-xl
+  border-black
+  pb-5
+  font-work 
+}
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #f0f3e9;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
