@@ -14,6 +14,7 @@ import voyage from '../assets/voyage.svg'
 import act from '../assets/act.svg'
 import past from '../assets/past.svg'
 import Image from 'next/image'
+import logo from '../assets/logo.svg'
 import NewPost from '../components/NewPost'
 import Wc from "./Wallettest"
 function MyApp({ Component, pageProps }) {
@@ -99,7 +100,14 @@ async function signInWc(){
       profile: userProfile
     }}>
       <div className="homeMargin">
-        <nav >
+        <div>
+          <section className='my-20 text center'>
+              <Image
+              width="600" height="100" src={logo} className='xl:w-1/3 w-96 mx-auto'/>
+          </section>
+        </div>
+
+        <nav>
           
             <div className="toolbar">
             <Link href='/'>
