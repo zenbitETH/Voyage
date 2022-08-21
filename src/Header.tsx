@@ -4,38 +4,6 @@ import Blockie from "../src/components/Blockie";
 import { ellipseAddress, getChainData } from "./helpers/utilities";
 import { transitions } from "./styles";
 
-const SHeader = styled.div`
-  margin-top: -1px;
-  margin-bottom: 1px;
-  width: 100%;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-`;
-
-const SActiveAccount = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  font-weight: 500;
-`;
-
-const SActiveChain = styled(SActiveAccount as any)`
-  flex-direction: column;
-  text-align: left;
-  align-items: flex-start;
-  & p {
-    font-size: 0.8em;
-    margin: 0;
-    padding: 0;
-  }
-  & p:nth-child(2) {
-    font-weight: bold;
-  }
-`;
-
 const SBlockie = styled(Blockie as any)`
   margin-right: 10px;
 `;
@@ -93,12 +61,11 @@ const Header = ({ connected, address, chainId, killSession }: IHeaderProps) => {
   }
 
   return (
-    <SHeader>
+    <div>
       {connected && (
-        <SActiveChain>
+        <div>
           {activeChain ? (
             <>
-              <p>Connected to</p>
               <p>{activeChain}</p>
             </>
           ) : (
@@ -107,7 +74,7 @@ const Header = ({ connected, address, chainId, killSession }: IHeaderProps) => {
               <p>Please switch to a supported chain in your wallet.</p>
             </SUnsupportedChain>
           )}
-        </SActiveChain>
+        </div>
       )}
       {address && (
         <SActiveAccount>
@@ -118,7 +85,7 @@ const Header = ({ connected, address, chainId, killSession }: IHeaderProps) => {
           </SDisconnect>
         </SActiveAccount>
       )}
-    </SHeader>
+    </div>
   );
 };
 

@@ -547,20 +547,20 @@ class App extends React.Component<any, any> {
               <div >
                 <div>
                   <div  onClick={this.connect} fetching={fetching}>
-                    {"Connect to WalletConnect"}
+                    {"WalletConnect"}
                   </div>
                 </div>
               </div>
             ) : (
               <div>
-                <Banner />
-                <h3>Actions</h3>
+                
+            
                 <Column center>
                   <div>
                     
                   </div>
                 </Column>
-                <h3>Balances</h3>
+                
                 {!fetching ? (
                   <AccountAssets chainId={chainId} assets={assets} />
                 ) : (
