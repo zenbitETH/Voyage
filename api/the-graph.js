@@ -26,7 +26,6 @@ client
   .query({
     query: gql(tokensQuery(id)),
   })
-  .then((data) => console.log('Subgraph data: ', data))
   .catch((err) => {
     console.log('Error fetching data: ', err)
   })}

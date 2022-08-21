@@ -9,12 +9,6 @@ import Link from 'next/link'
 import Image from 'next/image';
 import { getGraph } from '../api/the-graph'
 
-import like from '../assets/1-like.svg'
-import tripComment from '../assets/2-commet.svg'
-import mirror from '../assets/3-mirror.svg'
-import collect from '../assets/4-collect.svg'
-import WDC from '../assets/worldcoin.svg'
-
 const typeMap = {
   Comment: "Comment",
   Mirror: "Mirror",
@@ -138,38 +132,27 @@ export default function Home() {
                         />
                       )
                     }
-                    <div className="postText">
-                      <div className="proName">{post.profile.name} /    
-                        <span className="proHandle">{post.profile.handle}</span>  
-                      </div>
 
-                      {console.log(getGraph(post.profile.ownedBy))}
+                    
+                    
+                    <div className="text-white text-center grid w-full ">
+                      <span className="proName">{post.profile.name} /    
+                        <span className="proHandle">{post.profile.handle}</span>
+                        
+                      </span>
+                   
                       <div className='tripCity'>{getGraph(post.profile.ownedBy)?"📍{getGraph(post.profile.ownedBy)}, Trip #0001":"No Trip NFT Minted"}</div>
+                
+                      <p> account authentificated : {post.profile.onChainIdentity.worldcoin.isHuman.toString()}</p>
+                 
+                      
                      
                     </div>
-                    <div >
-                    {console.log(post.profile,      "===================================")}
-                      <p className='WDC'> {}  :
-
-
-                        <div>{post.profile.onChainIdentity.worldcoin.   isHuman.toString(
-                        <Image
-                          src={WDC}
-                          width={20}
-                          height={20}
-                          className="hover:regen-100 cursor-pointer "  
-                        />)}
-                        
-                        </div>
-                      </p>
-                    </div>
                   </div>
-                  <div className='postContent'>
-                    <p>{trimString(post.metadata.content, 200)}</p>
-                    {}
-                    <div className='mt-5'>
-                      <img src={post.metadata.image} />
-                    </div>
+                  <div>
+                    <p className={latestPostStyle}>{trimString(post.metadata.content, 200)}</p>
+                    {console.log(post.metadata.image.split("ipfs://").length==1?post.metadata.image : `https://ipfs.io/ipfs/${post.metadata.image.split("ipfs://")[1]}`)}
+                    <img src={post.metadata.image.split("ipfs://").length==1?post.metadata.image : `https://ipfs.io/ipfs/${post.metadata.image.split("ipfs://")[1]}`}></img>
                     {console.log("proName",post.metadata, 200)}
                     <div className='proFooter'>
                     <Link href='/'>

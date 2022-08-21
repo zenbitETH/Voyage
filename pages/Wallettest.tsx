@@ -557,24 +557,7 @@ class App extends React.Component<any, any> {
                 <h3>Actions</h3>
                 <Column center>
                   <div>
-                    <div left onClick={this.testSendTransaction}>
-                      {"eth_sendTransaction"}
-                    </div>
-                    <div onClick={this.testSignTransaction}>
-                      {"eth_signTransaction"}
-                    </div>
-                    <div onClick={this.testSignTypedData}>
-                      {"eth_signTypedData"}
-                    </div>
-                    <div onClick={this.testLegacySignMessage}>
-                      {"eth_sign (legacy)"}
-                    </div>
-                    <div onClick={this.testStandardSignMessage}>
-                      {"eth_sign (standard)"}
-                    </div>
-                    <div onClick={this.testPersonalSignMessage}>
-                      {"personal_sign"}
-                    </div>
+                    
                   </div>
                 </Column>
                 <h3>Balances</h3>
