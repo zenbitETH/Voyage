@@ -53,7 +53,8 @@ path:hover {
 
 .WDC {
   @apply
-  text-regen-500
+  text-white
+  text-center
 }
 
 .proFooter {

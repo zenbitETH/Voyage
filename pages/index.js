@@ -146,30 +146,33 @@ export default function Home() {
                       </div>
                    
                       <div className='tripCity'>{getGraph(post.profile.ownedBy)?"📍{getGraph(post.profile.ownedBy)}, Trip #0001":"No Trip NFT Minted"}</div>
-                
-                     
-                      
+
                      
                     </div>
                     
                     <p className='WDC'> 
-                    : 
-                    <div>{post.profile.onChainIdentity.worldcoin.   isHuman.toString(
                     <Image
                       src={WDC}
-                      width={20}
-                      height={20}
-                      className="hover:regen-100 cursor-pointer "  
-                    />)}
+                      width={25}
+                      height={25}
+                      className=" "  
+                    />
+                    <div>{post.profile.onChainIdentity.worldcoin.   isHuman.toString(
+                    )}
                     
                     </div>
                     </p>
                  
                   </div>
-                  <div>
+                  <div className=''>
                     <p className="postContent">{trimString(post.metadata.content, 300)}</p>
-                    {console.log(post.metadata.image.split("ipfs://").length==1?post.metadata.image : `https://ipfs.io/ipfs/${post.metadata.image.split("ipfs://")[1]}`)}
-                    <img src={post.metadata.image.split("ipfs://").length==1?post.metadata.image : `https://ipfs.io/ipfs/${post.metadata.image.split("ipfs://")[1]}`}></img>
+                    
+                      {console.log(post.metadata.image.split("ipfs://").length==1?post.metadata.image : `https://ipfs.io/ipfs/${post.metadata.image.split("ipfs://")[1]}`)}
+                      <div className='text-center'>
+                        <img className='grid' src={post.metadata.image.split("ipfs://").length==1?post.metadata.image : `https://ipfs.io/ipfs/${post.metadata.image.split("ipfs://")[1]}`}/>
+                      </div>
+
+                    
                     {console.log("proName",post.metadata, 200)}
                     <div className='proFooter'>
                     <Link href='/'>
