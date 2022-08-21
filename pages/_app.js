@@ -1,13 +1,20 @@
 import '../styles/globals.css'
 import { useState, useEffect } from 'react'
 import { ethers, providers } from 'ethers'
-import { css } from '@emotion/css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { createClient, STORAGE_KEY, authenticate as authenticateMutation, getChallenge, getDefaultProfile } from '../api'
 import { parseJwt, refreshAuthToken } from '../utils'
 import { AppContext } from '../context'
+import Toolbar  from '../components/Toolbar'
 import Modal from '../components/CreatePostModal'
+import home from '../assets/home.svg'
+import feed from '../assets/feed.svg'
+import voyage from '../assets/voyage.svg'
+import act from '../assets/act.svg'
+import past from '../assets/past.svg'
+import Image from 'next/image'
+import NewPost from '../components/NewPost'
 
 function MyApp({ Component, pageProps }) {
   const [connected, setConnected] = useState(true)
@@ -15,6 +22,7 @@ function MyApp({ Component, pageProps }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [userProfile, setUserProfile] = useState()
   const router = useRouter()
+  
 
   useEffect(() => {
     refreshAuthToken()
@@ -88,35 +96,67 @@ function MyApp({ Component, pageProps }) {
       profile: userProfile
     }}>
       <div>
-        <nav className={navStyle}>
-          <div className={navContainerStyle}>
-            <div className={linkContainerStyle}>
+        <nav className="">
+          
+            <div className="bg-trip-900 fixed bottom-0 w-full grid grid-cols-5">
               <Link href='/'>
-                <a>
-                  <img src="/icon.svg" className={iconStyle} />
+                <a className='imageBG'>
+                  <Image
+                    src={feed}
+                    width={35}
+                    height={35}
+                    className="hover:regen-100 cursor-pointer"  
+                  />
+                </a>
+              </Link>
+              <Link href='/Wallettest'>
+                <a className='imageBG'>
+                  <Image
+                    src={past}
+                    width={35}
+                    height={35}
+                    className="hover:regen-100 cursor-pointer"
+                  />  
                 </a>
               </Link>
               <Link href='/'>
-                <a>
-                  <p className={linkTextStyle}>Home</p>
+                <a className='imageBG'>
+                  <Image
+                    src={home}
+                    width={35}
+                    height={35}
+                    className="hover:regen-100 cursor-pointer"
+                  />
+                 
                 </a>
               </Link>
               <Link href='/profiles'>
-                <a>
-                  <p className={linkTextStyle}>Explore Profiles</p>
+                <a className='imageBG'>
+                <Image
+                  src={act}
+                  width={35}
+                  height={35}
+                  className="hover:regen-100 cursor-pointer"
+                />
                 </a>
               </Link>
               {
                 userProfile && (
                   <Link href={`/profile/${userProfile.id}`}>
-                    <a>
-                      <p className={linkTextStyle}>Profile</p>
+                    <a className='imageBG'>
+                      <Image
+                        src={voyage}
+                        width={35}
+                        height={35}
+                        className="hover:regen-100 cursor-pointer"
+                      />
                     </a>
                   </Link>
                 )
               }
             </div>
-            <div className={buttonContainerStyle}>
+
+            <div className="">
               {
                 !connected && (
                   <button className="bg-green-500 px-10 py-2 rounded-xl" onClick={signIn}>Sign in</button>
@@ -124,20 +164,19 @@ function MyApp({ Component, pageProps }) {
               }
               {
                 connected && (
-                  <button
-                    className={modalButtonStyle}
+                  <div
+                    className=""
                     onClick={() => setIsModalOpen(true)}>
                     <img
                       src="/create-post.svg"
-                      className={createPostStyle}
+                      className=""
                     />
-                  </button>
+                  </div>
                 )
               }
             </div>
-          </div>
         </nav>
-        <div className={appLayoutStyle}>
+        <div className="">
           <Component {...pageProps} />
         </div>
         {
@@ -152,83 +191,5 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-const appLayoutStyle = css`
-  width: 900px;
-  margin: 0 auto;
-  padding: 78px 0px 50px;
-`
-
-const linkTextStyle = css`
-  margin-right: 40px;
-  font-weight: 600;
-  font-size: 15px;
-`
-
-const iconStyle = css`
-  height: 35px;
-  margin-right: 40px;
-`
-
-const modalButtonStyle = css`
-  background-color: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-`
-
-const createPostStyle = css`
-  height: 35px;
-  margin-right: 5px;
-`
-
-const navStyle = css`
-  background-color: white;
-  padding: 15px 30px;
-  display: flex;
-  position: fixed;
-  width: 100%;
-  background-color: white;
-  z-index: 1;
-  border-bottom: 1px solid #ededed;
-`
-
-const navContainerStyle = css`
-  width: 900px;
-  margin: 0 auto;
-  display: flex;
-`
-
-const linkContainerStyle = css`
-  display: flex;
-  align-items: center;
-`
-
-const buttonContainerStyle = css`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  flex: 1;
-`
-
-const buttonStyle = css`
-  border: none;
-  outline: none;
-  margin-left: 15px;
-  background-color: black;
-  color: #340036;
-  padding: 13px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  background-color: rgb(249, 92, 255);
-  transition: all .35s;
-  width: 160px;
-  letter-spacing: .75px;
-  &:hover {
-    background-color: rgba(249, 92, 255, .75);
-  }
-`
 
 export default MyApp

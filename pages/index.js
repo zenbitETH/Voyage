@@ -6,6 +6,8 @@ import { trimString, generateRandomColor } from '../utils'
 import { Button, SearchInput, Placeholders } from '../components'
 import { AppContext } from '../context'
 import Link from 'next/link'
+import Image from 'next/image';
+
 
 const typeMap = {
   Comment: "Comment",
@@ -119,12 +121,16 @@ export default function Home() {
           posts.map((post, index) => (
             <Link href={`/profile/${post.profile.id || post.profile.profileId}`} key={index}>
               <a>
-                <div className={listItemStyle}>
-                  <p className={itemTypeStyle}>{typeMap[post.__typename]}</p>
-                  <div className={profileContainerStyle} >
+                <div className="items">
+                  
+                  <div className="postHead" >
+                    
                     {
                       post.profile.picture && post.profile.picture.original ? (
-                      <img src={post.profile.picture.original.url} className={profileImageStyle} />
+                      
+                        <img src={post.profile.picture.original.url} className={profileImageStyle} />
+                      
+          
                       ) : (
                         <div
                           className={
@@ -136,14 +142,28 @@ export default function Home() {
                         />
                       )
                     }
+
                     
-                    <div className={profileInfoStyle}>
-                      <h3 className={nameStyle}>{post.profile.name}</h3>
-                      <p className={handleStyle}>{post.profile.handle}</p>
+                    
+                    <div className="text-white text-center grid w-full ">
+                      <span className="proName">{post.profile.name} /    
+                        <span className="proHandle">{post.profile.handle}</span>
+                      </span>
+                      <div className='tripCity'>📍CDMX, Trip #0001</div>
+
+                 
+                      
+                     
                     </div>
                   </div>
                   <div>
                     <p className={latestPostStyle}>{trimString(post.metadata.content, 200)}</p>
+                    {console.log("proName",post.metadata, 200)}
+                    
+                    {/*<Image       
+                      width="100px"
+                      height="auto" 
+                      src={post.metadata.image}class="PLDetail" />*/}
                   </div>
                 </div>
               </a>
@@ -157,22 +177,26 @@ export default function Home() {
 
 const searchContainerStyle = css`
   padding: 40px 0px 30px;
+  
 `
 
 const latestPostStyle = css`
-  margin: 23px 0px 5px;
+  margin: 23px 5px 5px;
   word-wrap: break-word;
 `
 
 const profileContainerStyle = css`
   display: flex;
   flex-direction: row;
+ 
 `
 
 const profileImageStyle = css`
   width: 42px;
   height: 42px;
   border-radius: 34px;
+  margin:15px
+  
 `
 
 const placeholderStyle = css`
@@ -187,7 +211,7 @@ const listItemContainerStyle = css`
 const listItemStyle = css`
   background-color: white;
   margin-top: 13px;
-  border-radius: 10px;
+  border-radius: 25px;
   border: 1px solid rgba(0, 0, 0, .15);
   padding: 21px;
 `
@@ -202,13 +226,13 @@ const nameStyle = css`
 
 const handleStyle = css`
   margin: 0px 0px 5px;
-  color: #b900c9;
+  color: #416657;
 `
 
 const itemTypeStyle = css`
   margin: 0;
   font-weight: 500;
   font-size: 14px;
-  color: rgba(0, 0, 0, .45);
+  color: #f0f3e9
   margin-bottom: 16px;
 `
