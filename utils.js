@@ -58,7 +58,7 @@ export function signedTypeData (domain, types, value) {
 }
 
 export function splitSignature(signature) {
-  return utils.splitSignature(signature)
+  return utils.splitSignature(signature)  
 }
 
 export function generateRandomColor(){
@@ -72,7 +72,7 @@ export function generateRandomColor(){
 
 export const baseMetadata = {
   version: "1.0.0",
-  image: null,
+  image: "https://ipfs.io/ipfs/QmaReUS367aQDb6FnuxBAWiQAB8Tfgkm2rhVmCxFnzKqTh",
   imageMimeType: null,
   mainContentFocus: "TEXT",
   contentWarning: null,

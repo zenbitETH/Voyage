@@ -228,7 +228,7 @@ const nameStyle = css`
 
 const handleStyle = css`
   margin: 0px 0px 5px;
-  color: #b900c9;
+  color: #416657;
 `
 
 const headerStyle = css`
