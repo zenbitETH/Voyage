@@ -9,6 +9,12 @@ import Link from 'next/link'
 import Image from 'next/image';
 import { getGraph } from '../api/the-graph'
 
+import like from '../assets/1-like.svg'
+import tripComment from '../assets/2-commet.svg'
+import mirror from '../assets/3-mirror.svg'
+import collect from '../assets/4-collect.svg'
+import WDC from '../assets/worldcoin.svg'
+
 const typeMap = {
   Comment: "Comment",
   Mirror: "Mirror",
@@ -143,28 +149,81 @@ export default function Home() {
                         />
                       )
                     }
+                    <div className="postText">
+                      <div className="proName">{post.profile.name} /    
+                        <span className="proHandle">{post.profile.handle}</span>  
+                      </div>
 
-                    
-                    
-                    <div className="text-white text-center grid w-full ">
-                      <span className="proName">{post.profile.name} /    
-                        <span className="proHandle">{post.profile.handle}</span>
-                        
-                      </span>
                       {console.log(getGraph(post.profile.ownedBy))}
                       <div className='tripCity'>{getGraph(post.profile.ownedBy)?"📍{getGraph(post.profile.ownedBy)}, Trip #0001":"No Trip NFT Minted"}</div>
-                      {console.log(post.profile,"===================================")}
-                      <p> account authentificated : {post.profile.onChainIdentity.worldcoin.isHuman.toString()}</p>
-                 
-                      
                      
                     </div>
+                    <div >
+                    {console.log(post.profile,      "===================================")}
+                      <p className='WDC'> {}  :
+
+
+                        <div>{post.profile.onChainIdentity.worldcoin.   isHuman.toString(
+                        <Image
+                          src={WDC}
+                          width={20}
+                          height={20}
+                          className="hover:regen-100 cursor-pointer "  
+                        />)}
+                        
+                        </div>
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className={latestPostStyle}>{trimString(post.metadata.content, 200)}</p>
+                  <div className='postContent'>
+                    <p>{trimString(post.metadata.content, 200)}</p>
                     {}
-                    <img src={post.metadata.image}></img>
+                    <div className='mt-5'>
+                      <img src={post.metadata.image} />
+                    </div>
                     {console.log("proName",post.metadata, 200)}
+                    <div className='proFooter'>
+                    <Link href='/'>
+                      <a className=''>
+                        <Image
+                          src={like}
+                          width={20}
+                          height={20}
+                          className="hover:regen-100 cursor-pointer  "  
+                        />
+                      </a>
+                    </Link>
+                    <Link href='/'>
+                      <a className=''>
+                        <Image
+                          src={tripComment}
+                          width={20}
+                          height={20}
+                          className="hover:regen-100 cursor-pointer"  
+                        />
+                      </a>
+                    </Link>
+                    <Link href='/'>
+                      <a className=''>
+                        <Image
+                          src={mirror}
+                          width={20}
+                          height={20}
+                          className="hover:regen-100 cursor-pointer"  
+                        />
+                      </a>
+                    </Link>
+                    <Link href='/'>
+                      <a className=''>
+                        <Image
+                          src={collect}
+                          width={20}
+                          height={20}
+                          className="hover:regen-100 cursor-pointer"  
+                        />
+                      </a>
+                    </Link>
+                    </div>
                     
                     {/*<Image       
                       width="100px"
