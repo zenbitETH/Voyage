@@ -98,31 +98,11 @@ async function signInWc(){
       userAddress,
       profile: userProfile
     }}>
-      <div>
-        <nav className="">
+      <div className="homeMargin">
+        <nav >
           
-            <div className="bg-trip-900 fixed bottom-0 w-full grid grid-cols-5">
-              <Link href='/'>
-                <a className='imageBG'>
-                  <Image
-                    src={feed}
-                    width={35}
-                    height={35}
-                    className="hover:regen-100 cursor-pointer"  
-                  />
-                </a>
-              </Link>
-              <Link href='/Wallettest'>
-                <a className='imageBG'>
-                  <Image
-                    src={past}
-                    width={35}
-                    height={35}
-                    className="hover:regen-100 cursor-pointer"
-                  />  
-                </a>
-              </Link>
-              <Link href='/'>
+            <div className="toolbar">
+            <Link href='/'>
                 <a className='imageBG'>
                   <Image
                     src={home}
@@ -133,14 +113,14 @@ async function signInWc(){
                  
                 </a>
               </Link>
-              <Link href='/profiles'>
+              <Link href='/'>
                 <a className='imageBG'>
-                <Image
-                  src={act}
-                  width={35}
-                  height={35}
-                  className="hover:regen-100 cursor-pointer"
-                />
+                  <Image
+                    src={feed}
+                    width={35}
+                    height={35}
+                    className="hover:regen-100 cursor-pointer"  
+                  />
                 </a>
               </Link>
               {
@@ -157,12 +137,39 @@ async function signInWc(){
                   </Link>
                 )
               }
+              <Link href='/Wallettest'>
+                <a className='imageBG'>
+                  <Image
+                    src={past}
+                    width={35}
+                    height={35}
+                    className="hover:regen-100 cursor-pointer"
+                  />  
+                </a>
+              </Link>
+              
+
+              <Link href='/profiles'>
+                <a className='imageBG'>
+                <Image
+                  src={act}
+                  width={35}
+                  height={35}
+                  className="hover:regen-100 cursor-pointer"
+                />
+                </a>
+              </Link>
+
             </div>
 
-            <div className="">
+            <div className="wallet">
               {
                 !connected && (
-                  <div><button className="bg-green-500 px-10 py-2 rounded-xl" onClick={signIn}>Sign in</button><Wc ></Wc></div>
+                  <div className='wallets' >
+                    <Wc/>
+                    <div className="hover:bg-degen-500  hover:rounded-xl" onClick={signIn}>Classic</div>
+                    
+                  </div>
                   
                 )
               }
@@ -172,10 +179,6 @@ async function signInWc(){
                     className=""
                     onClick={() => setIsModalOpen(true)}>
                       sign in to lens
-                    <img
-                      src="/create-post.svg"
-                      className=""
-                    />
                   </div>
                 )
               }

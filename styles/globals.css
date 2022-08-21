@@ -15,7 +15,7 @@ path:hover {
 
 .imageBG {
   @apply
-  px-5 py-3 cursor-pointer hover:bg-regen-500 text-center
+  px-5 py-3 cursor-pointer hover:bg-regen-500 text-center grid
 }
 
 .postHead {
@@ -61,19 +61,60 @@ path:hover {
   grid
   grid-cols-4
   mt-5
-  text-center
+  text-center  
+}
+
+.toolbar {
+  @apply
+  grid grid-cols-5 
+  bg-trip-900 
+  fixed bottom-0 xl:grid-cols-1 xl:left-0 
+  w-full xl:w-20 xl:h-full   xl:grid-rows-5 
+  xl:py-52
+
 }
 
 
+.homeMargin {
+  @apply
+  mt-10 overflow-auto
+  mb-20
+  grid
+  mx-auto
+  xl:w-1/3
+  xl:text-3xl
+}
+
+.wallet {
+  @apply
+  bg-regen-900
+  hover:bg-regen-100
+  rounded-b-2xl text-white
+  text-center
+  font-work
+  text-xl
+  cursor-pointer
+  fixed
+  top-0
+  w-full
+  xl:w-1/3
+  z-50
+}
+
+.wallets {
+  @apply
+  grid grid-cols-2
+}
 
 .items {
   @apply 
   bg-white
-  mt-5
+  mt-16
   rounded-xl
   border-black
   pb-5
   font-work 
+  
 }
 
 
@@ -89,5 +130,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-
