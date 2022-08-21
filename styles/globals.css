@@ -20,7 +20,21 @@ path:hover {
 
 .postHead {
   @apply 
-  bg-regen-500 grid grid-cols-3 rounded-t-lg
+  bg-regen-500 grid grid-cols-6 rounded-t-lg
+}
+
+.postText {
+  @apply
+  text-white text-center grid w-full col-span-4
+}
+
+.postContent {
+  @apply
+  text-black
+  font-work
+  mx-5
+  mt-5
+  text-base
 }
 
 .proName {
@@ -35,6 +49,19 @@ path:hover {
   @apply
   text-sm
   font-work
+}
+
+.WDC {
+  @apply
+  text-regen-500
+}
+
+.proFooter {
+  @apply 
+  grid
+  grid-cols-4
+  mt-5
+  text-center
 }
 
 
@@ -63,7 +90,4 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
+
