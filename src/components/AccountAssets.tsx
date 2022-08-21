@@ -41,12 +41,7 @@ const AccountAssets = (props: any) => {
     );
   }
   return (
-    <Column center>
-      <AssetRow key={nativeCurrency.name} asset={nativeCurrency} />
-      {tokens.map(token => (
-        <AssetRow key={token.symbol} asset={token} />
-      ))}
-    </Column>
+    <div/>
   );
 };
 

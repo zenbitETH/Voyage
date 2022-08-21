@@ -178,7 +178,7 @@ export const SUPPORTED_CHAINS: IChainData[] = [
     },
   },
   {
-    name: "Polygon Testnet Mumbai",
+    name: "Mumbai",
     chain: "Polygon",
     network: "mumbai",
     rpc_url: "https://rpc-mumbai.maticvigil.com",

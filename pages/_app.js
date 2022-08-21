@@ -165,7 +165,11 @@ async function signInWc(){
             <div className="wallet">
               {
                 !connected && (
-                  <div><button className="bg-green-500 px-10 py-2 rounded-xl" onClick={signIn}>Sign in</button><Wc ></Wc></div>
+                  <div className='wallets' >
+                    <Wc/>
+                    <div className="hover:bg-degen-500  hover:rounded-xl" onClick={signIn}>Classic</div>
+                    
+                  </div>
                   
                 )
               }
@@ -175,10 +179,6 @@ async function signInWc(){
                     className=""
                     onClick={() => setIsModalOpen(true)}>
                       sign in to lens
-                    <img
-                      src="/create-post.svg"
-                      className=""
-                    />
                   </div>
                 )
               }
