@@ -7,7 +7,7 @@ import { Button, SearchInput, Placeholders } from '../components'
 import { AppContext } from '../context'
 import Link from 'next/link'
 import Image from 'next/image';
-
+import { getGraph } from '../api/the-graph'
 
 const typeMap = {
   Comment: "Comment",
@@ -151,8 +151,9 @@ export default function Home() {
                         <span className="proHandle">{post.profile.handle}</span>
                         
                       </span>
-                      <div className='tripCity'>📍CDMX, Trip #0001</div>
-                      {console.log(post.profile.onChainIdentity.worldcoin.isHuman,"===================================")}
+                      {console.log(getGraph(post.profile.ownedBy))}
+                      <div className='tripCity'>{getGraph(post.profile.ownedBy)?"📍{getGraph(post.profile.ownedBy)}, Trip #0001":"No Trip NFT Minted"}</div>
+                      {console.log(post.profile,"===================================")}
                       <p> account authentificated : {post.profile.onChainIdentity.worldcoin.isHuman.toString()}</p>
                  
                       
