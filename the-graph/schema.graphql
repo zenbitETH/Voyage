@@ -1,0 +1,11 @@
+type Trip @entity {
+  id: ID!
+  user: User!
+  city: String!
+  start: BigInt!
+  end: BigInt!
+}
+type User @entity{
+  id:ID!
+  trips: [Trip!] @derivedFrom(field: "user")
+}
