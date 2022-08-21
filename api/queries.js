@@ -3,6 +3,7 @@ const recommendProfiles = `
     recommendedProfiles {
         id
         name
+        
         picture {
           ... on MediaSet {
             original {
@@ -294,6 +295,7 @@ fragment ProfileFields on Profile {
   profileId: id,
   name
   bio
+  onChainIdentity{worldcoin{isHuman}}
   attributes {
      displayType
      traitType
@@ -458,6 +460,7 @@ fragment PostFields on Post {
   id
   profile {
     ...ProfileFields
+    onChainIdentity{worldcoin{isHuman}}
   }
   stats {
     ...PublicationStatsFields
@@ -564,6 +567,7 @@ const searchProfiles = `
     profileId: id,
     name
     bio
+    onChainIdentity{worldcoin{isHuman}}
     attributes {
       displayType
       traitType
@@ -761,7 +765,7 @@ const doesFollow = `
 
 const timeline = `
 query Timeline($profileId: ProfileId!, $limit: LimitScalar) {
-  timeline(request: { profileId: $profileId, limit: $limit }) {
+  timeline(request: { profileId: $profileId, limit: $limit ,metadata:{mainContentFocus:IMAGE}}) {
     items {
       __typename 
       ... on Post {
@@ -791,6 +795,7 @@ fragment ProfileFields on Profile {
   id
   name
   bio
+  onChainIdentity{worldcoin{isHuman}}
   attributes {
     displayType
     traitType
@@ -875,6 +880,7 @@ fragment MetadataOutputFields on MetadataOutput {
   name
   description
   content
+  image
   media {
     original {
       ...MediaFields

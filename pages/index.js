@@ -151,9 +151,9 @@ export default function Home() {
                         <span className="proHandle">{post.profile.handle}</span>
                         
                       </span>
-                      {console.log(getGraph(post.profile.ownedBy))}
+                   
                       <div className='tripCity'>{getGraph(post.profile.ownedBy)?"📍{getGraph(post.profile.ownedBy)}, Trip #0001":"No Trip NFT Minted"}</div>
-                      {console.log(post.profile,"===================================")}
+                
                       <p> account authentificated : {post.profile.onChainIdentity.worldcoin.isHuman.toString()}</p>
                  
                       
@@ -162,14 +162,11 @@ export default function Home() {
                   </div>
                   <div>
                     <p className={latestPostStyle}>{trimString(post.metadata.content, 200)}</p>
-                    {}
-                    <img src={post.metadata.image}></img>
+                    {console.log(post.metadata.image.split("ipfs://").length==1?post.metadata.image : `https://ipfs.io/ipfs/${post.metadata.image.split("ipfs://")[1]}`)}
+                    <img src={post.metadata.image.split("ipfs://").length==1?post.metadata.image : `https://ipfs.io/ipfs/${post.metadata.image.split("ipfs://")[1]}`}></img>
                     {console.log("proName",post.metadata, 200)}
                     
-                    {/*<Image       
-                      width="100px"
-                      height="auto" 
-                      src={post.metadata.image}class="PLDetail" />*/}
+                  
                   </div>
                 </div>
               </a>

@@ -15,7 +15,7 @@ import act from '../assets/act.svg'
 import past from '../assets/past.svg'
 import Image from 'next/image'
 import NewPost from '../components/NewPost'
-
+import Wc from "./Wallettest"
 function MyApp({ Component, pageProps }) {
   const [connected, setConnected] = useState(true)
   const [userAddress, setUserAddress] = useState()
@@ -60,7 +60,10 @@ function MyApp({ Component, pageProps }) {
       refreshAuthToken()
     })
   }
-
+async function signInWc(){
+  const account = accounts.result[0]
+      setUserAddress(account)
+}
   async function signIn() {
     try {
       const accounts = await window.ethereum.send(
@@ -159,7 +162,8 @@ function MyApp({ Component, pageProps }) {
             <div className="">
               {
                 !connected && (
-                  <button className="bg-green-500 px-10 py-2 rounded-xl" onClick={signIn}>Sign in</button>
+                  <div><button className="bg-green-500 px-10 py-2 rounded-xl" onClick={signIn}>Sign in</button><Wc ></Wc></div>
+                  
                 )
               }
               {
@@ -167,6 +171,7 @@ function MyApp({ Component, pageProps }) {
                   <div
                     className=""
                     onClick={() => setIsModalOpen(true)}>
+                      sign in to lens
                     <img
                       src="/create-post.svg"
                       className=""
