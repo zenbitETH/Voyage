@@ -1,4 +1,4 @@
-import { IChainData } from "./types";
+import { IChainData } from "../helpers/types";
 
 export const SUPPORTED_CHAINS: IChainData[] = [
   {

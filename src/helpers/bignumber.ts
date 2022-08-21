@@ -1,4 +1,4 @@
-import BigNumber from "./bignumber.js";
+import BigNumber from "bignumber.js";
 
 export function isNaN(value: string | number): boolean {
   return new BigNumber(`${value}`).isNaN();
