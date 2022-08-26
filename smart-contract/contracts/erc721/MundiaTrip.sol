@@ -2,24 +2,27 @@
 pragma solidity ^0.8.13;
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract MundialTrip is ERC721URIStorage {
+contract VoyagePassport is ERC721URIStorage {
     uint256 tokenId;
-    event TripDeclared(
+    event VoyageDeclared(
         address user,
         uint256 tokenId,
         string city,
         uint256 startTime,
         uint256 endTime
     );
-    struct Trip {
+    struct Voyage {
         uint256 tokenId;
         string city;
         uint256 startTime;
         uint256 endTime;
     }
-    mapping(address => Trip) tokenTrip;
+    struct Memories {
+        // Lens posts created during Voyage
+    }
+    mapping(address => Voyage) tokenVoyage;
 
-    constructor() ERC721("Trip-Token", "TT") {}
+    constructor() ERC721("Voyage", "VYG") {}
 
     function mint(string calldata city, uint256 endtime) public {
         Trip memory trip = Trip(tokenId, city, block.timestamp, endtime);
