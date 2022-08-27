@@ -16,7 +16,6 @@ import past from '../assets/past.svg'
 import Image from 'next/image'
 import logo from '../assets/logo.svg'
 import NewPost from '../components/NewPost'
-import Wc from "./Wallettest"
 function MyApp({ Component, pageProps }) {
   const [connected, setConnected] = useState(true)
   const [userAddress, setUserAddress] = useState()
@@ -174,20 +173,22 @@ async function signInWc(){
               {
                 !connected && (
                   <div className='wallets' >
-                    <Wc/>
-                    <div className="hover:bg-degen-500  hover:rounded-xl" onClick={signIn}>Classic</div>
-                    
+                    <div className="" onClick={signIn}>Connect</div>
                   </div>
                   
                 )
               }
               {
                 connected && (
-                  <div
-                    className=""
-                    onClick={() => setIsModalOpen(true)}>
-                      sign in to lens
+                  <div>
+                    {/*<div
+                      className=""
+                      onClick={() => setIsModalOpen(true)}>
+                        sign in to lens
+                    </div>
+                    */}
                   </div>
+              
                 )
               }
             </div>
