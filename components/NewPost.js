@@ -259,7 +259,7 @@ const NewPost = ({ setParentContentURL }) => {
                   </>
                 )}
                 {contentUrl && <div className="ProLabel">Image successfully upload</div>}
-                {error && <a class="text-white mt-5">Oops, something failed!</a>}
+                {error && <a className="text-white mt-5">Oops, something failed!</a>}
               </div>
           </Form>
         )}
