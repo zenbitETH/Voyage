@@ -3,7 +3,7 @@ import { ethers } from "hardhat";
 async function main() {
   
 let account= await ethers.getSigners();
-
+console.log(account[0])
 
 const oneDay = 60*60*24
 const oneWeek = oneDay*7
@@ -12,9 +12,14 @@ const oneMonth = oneDay*30
 
 
 // let provider =  new ethers.providers.AlchemyProvider("maticmum","6UhsPRKR79e4fSzMo590glSbly-BYewd")
-const Mt = await ethers.getContractFactory("MundialTrip");
+const Mt = await ethers.getContractFactory("VoyagePassport");
 
 const mt = Mt.attach("0xd0480376603736d6826eD133dB387Df6ebDdEea6");
+
+const Token = await ethers.getContractFactory("VoyageToken");
+const token = await Token.deploy("0x7582177F9E536aB0b6c721e11f383C326F2Ad1D5")
+console.log(token.address);
+await token.registerForReward(40161,10**21)
 
 // await mt.deployed();
 
@@ -25,6 +30,7 @@ const mt = Mt.attach("0xd0480376603736d6826eD133dB387Df6ebDdEea6");
 
 // console.log(await mt.isTripOngoing(account[2].address))
 console.log(await mt.getUserCurrentTrip(account[0].address))
+
 console.log( mt.address);
 
 }

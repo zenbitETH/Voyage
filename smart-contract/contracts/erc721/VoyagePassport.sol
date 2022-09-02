@@ -17,34 +17,31 @@ contract VoyagePassport is ERC721URIStorage {
         uint256 startTime;
         uint256 endTime;
     }
-    struct Memories {
-        // Lens posts created during Voyage
-    }
     mapping(address => Voyage) tokenVoyage;
 
     constructor() ERC721("Voyage", "VYG") {}
 
     function mint(string calldata city, uint256 endtime) public {
-        Trip memory trip = Trip(tokenId, city, block.timestamp, endtime);
+        Voyage memory trip = Voyage(tokenId, city, block.timestamp, endtime);
         _mint(msg.sender, tokenId);
-        emit TripDeclared(msg.sender,tokenId, city, block.timestamp, endtime);
-        tokenTrip[msg.sender] = trip;
+        emit VoyageDeclared(msg.sender,tokenId, city, block.timestamp, endtime);
+        tokenVoyage[msg.sender] = trip;
         tokenId++;
     }
 
     function getUserCurrentTrip(address user)
         public
         view
-        returns (Trip memory)
+        returns (Voyage memory)
     {
-        return tokenTrip[user];
+        return tokenVoyage[user];
     }
 
     function isTripOngoing(uint256 tokenID) public view returns (bool) {
-        return tokenTrip[ownerOf(tokenID)].endTime < block.timestamp;
+        return tokenVoyage[ownerOf(tokenID)].endTime < block.timestamp;
     }
 
     function isTripOngoing(address user) public view returns (bool) {
-        return tokenTrip[user].endTime < block.timestamp;
+        return tokenVoyage[user].endTime < block.timestamp;
     }
 }
