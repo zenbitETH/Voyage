@@ -4,6 +4,87 @@
 @tailwind components;
 @tailwind utilities;
 
+.boleto {
+  @apply
+  w-96
+  rounded-2xl
+}
+
+
+.ticket-header, .ticket-footer {
+  @apply
+  bg-degen-500
+  text-white
+  font-work
+  text-center
+}
+
+.ticket-header {
+  @apply
+  font-bold
+  text-xl
+  py-4
+  rounded-t-2xl
+  rounded-b-md
+}
+
+.ticket-body {
+  @apply
+  bg-white text-black
+  rounded-md
+}
+
+.orides {
+  @apply
+  text-center
+  grid grid-cols-3
+  py-10
+  font-work
+}
+
+.ori-city {
+  @apply
+  font-light
+  text-xs
+}
+
+.ori-short {
+  @apply
+  font-bold
+  text-3xl
+  pt-1
+}
+
+.ticket-traveler, .ticket-date {
+  @apply
+  pl-10
+}
+
+.ticket-footer {
+  @apply 
+  text-xs
+  grid
+  grid-cols-8
+  py-2
+  rounded-t-md
+  rounded-b-2xl
+}
+
+.ticket-no {
+  @apply
+  col-span-2
+}
+
+.ticket-id {
+  @apply
+  col-span-2
+}
+
+.ticket-sp {
+  @apply
+  col-span-4
+}
+
 path:hover {
   fill: #416657;
 }
